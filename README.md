@@ -11,8 +11,8 @@
 
 ```
 npm install
-npm build
-npm test-logs
+npm run build
+npm run test-logs
 ```
 
 # TBD
@@ -30,7 +30,7 @@ npm test-logs
  - [The Graph](https://thegraph.com)
  - [Etherscan](https://etherscan.io)
  - [Alchemy](https://www.alchemyapi.io/)
- - [OpenZepplin](https://docs.openzeppelin.com/openzeppelin/)
+ - [OpenZepplin](https://docs.openzeppelin.com/contracts/)
  - [solidity2plantuml](https://github.com/MaxWdeMon/solidity2plantuml#readme)
  - [web3-react](https://github.com/NoahZinsmeister/web3-react)
 
