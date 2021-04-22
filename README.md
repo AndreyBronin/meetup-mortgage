@@ -30,7 +30,9 @@ npm test-logs
  - [solidity2plantuml](https://github.com/MaxWdeMon/solidity2plantuml#readme)
  - [web3-react](https://github.com/NoahZinsmeister/web3-react)
 
-# Материалы для обучения
+## Материалы для обучения
+
+ [Официальная документация Ethereum](https://ethereum.org/ru/developers/docs/)
 
 ## Книги
  - [Blockchain in action](https://www.amazon.com/Blockchain-Action-Bina-Ramamurthy/dp/1617296333)
