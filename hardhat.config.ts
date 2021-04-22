@@ -15,6 +15,7 @@ const SKIP_LOAD = process.env.SKIP_LOAD === 'true';
 const HARDFORK = 'istanbul';
 const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || '';
+const COINMARKETCAP_KEY = process.env.COINMARKETCAP_KEY || '';
 
 if (!SKIP_LOAD) {
   const tasksPath = path.join(__dirname, 'tasks');
@@ -33,6 +34,7 @@ const hardhatConfig: HardhatUserConfig = {
   },
   gasReporter: {
     currency: 'USD',
+    coinmarketcap: COINMARKETCAP_KEY,
     enabled: true
   },
   networks: {
