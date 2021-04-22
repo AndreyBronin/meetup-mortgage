@@ -19,6 +19,7 @@ bpm test-logs
  - [Alchemy](https://www.alchemyapi.io/)
  - [OpenZepplin](https://docs.openzeppelin.com/openzeppelin/)
  - [solidity2plantuml](https://github.com/MaxWdeMon/solidity2plantuml#readme)
+ - [web3-react](https://github.com/NoahZinsmeister/web3-react)
 
 # Материалы для обучения
 

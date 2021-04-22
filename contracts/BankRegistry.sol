@@ -17,7 +17,7 @@ contract BankRegistry is AccessControl  {
     mapping(address => string) banks;
 
 
-    function RegisterOrg(string memory name, address bankAdmin) external {
+    function RegisterBank(string memory name, address bankAdmin) external {
         banks[bankAdmin] = name;
         emit BankRegistred(name, bankAdmin);
     }

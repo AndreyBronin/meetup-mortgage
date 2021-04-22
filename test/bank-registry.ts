@@ -7,32 +7,53 @@ import chai from "chai";
 chai.use(solidity);
 const { expect } = chai;
 
-interface Accounts{admin, greenBank, yellowBank, redBank:SignerWithAddress }
+interface Accounts {admin, greenAdmin, redAdmin:SignerWithAddress }
+interface Banks {
+  registry: BankRegistry
+  green: Bank;
+  red: Bank;
+}
 
-describe("BankRegistry", function() {
-  let accounts: Accounts;
-  let bankRegistry: BankRegistry;
-  let greenBank: Bank;
-  let redBank: Bank;
+describe("Bank suite", function() {
+  let admin: SignerWithAddress;
+  let greenAdmin, redAdmin: SignerWithAddress;
+  let greenManager, redManager: SignerWithAddress;
+  let otherUsers: SignerWithAddress[];
+
+  let banks: Banks;
 
   before(async () => {
-    accounts = await hre.run('accounts');
+    // const accounts = await hre.run('accounts');
+    [admin, greenAdmin, redAdmin, greenManager, redManager, ...otherUsers] = await hre.ethers.getSigners();
 
-    console.log('==== Deploy Contracts')
-    const bankRegistryFactory = (await ethers.getContractFactory("BankRegistry")) as BankRegistryFactory;
-    bankRegistry = await bankRegistryFactory.connect(accounts.admin).deploy();
-    await bankRegistry.deployed();
-    expect(bankRegistry.address).to.properAddress;
-
-    [greenBank, redBank] = await hre.run('deploy:banks');
+    banks = await hre.run('deploy:banks');
   });
 
   it("Should register Bank", async () => {
 
-    const tx = bankRegistry.connect(accounts.greenBank).RegisterOrg('Green Bank', accounts.greenBank.address);
+    const tx = banks.registry.connect(admin).RegisterBank('GreenBank', greenAdmin.address);
 
     await expect(tx)
-      .to.emit(bankRegistry, 'BankRegistred')
-      .withArgs('Green Bank', accounts.greenBank.address);
+      .to.emit(banks.registry, 'BankRegistred')
+      .withArgs('GreenBank', greenAdmin.address);
+
+    const tx2 = banks.registry.connect(admin).RegisterBank('RedBank', redAdmin.address);
+
+    await expect(tx2)
+      .to.emit(banks.registry, 'BankRegistred')
+      .withArgs('RedBank', redAdmin.address);
   });
-});
+
+  it("Should revert document witch already exist", async () => {
+    await banks.green.connect(greenAdmin).StoreDocument(1);
+    const tx = banks.green.connect(greenAdmin).StoreDocument(1);
+    await expect(tx).to.be.reverted;
+  });
+
+  it("Should send mortgage document", async () => {
+    await banks.green.connect(greenAdmin).StoreDocument(2);
+    await banks.red.connect(redManager).ApproveMortgageDocument(2);
+
+  });
+
+  });
