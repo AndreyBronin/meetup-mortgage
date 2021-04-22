@@ -1,0 +1,39 @@
+{
+  "name": "meetup-mortgage",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "hardhat node",
+    "build": "SKIP_LOAD=true npm run compile",
+    "clean": "hardhat clean",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test-logs": "hardhat test --logs",
+    "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"
+  },
+  "author": "Andrey Bronin",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^3.4.1-solc-0.7-2",
+    "@typechain/ethers-v5": "^2.0.0",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "chai": "^4.3.4",
+    "ethers": "^5.1.3",
+    "hardhat": "^2.2.0",
+    "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-tracer": "^1.0.0-alpha.5",
+    "mocha": "^8.3.0",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^9.1.1",
+    "typechain": "^4.0.3",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "hardhat-typechain": "^0.3.5"
+  }
+}
