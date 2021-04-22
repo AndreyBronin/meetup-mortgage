@@ -16,10 +16,12 @@ npm test-logs
 ```
 
 # TBD
- - file encription
+ - file encryption
  - React frontend
- - ipfs storage
+ - IPFS storage
  - Subgraph API
+ - Solidity linter
+ - Test coverage
 
 ## Инструменты и утилиты
 
