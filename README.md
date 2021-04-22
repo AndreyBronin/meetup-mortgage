@@ -1,3 +1,5 @@
+[![.github/workflows/ci.yml](https://github.com/AndreyBronin/meetup-mortgage/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/AndreyBronin/meetup-mortgage/actions/workflows/ci.yml)
+
 # Демо проект
 
 Простая реализация документооборота на блокчейне.

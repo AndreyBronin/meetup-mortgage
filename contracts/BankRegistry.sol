@@ -16,7 +16,7 @@ contract BankRegistry is AccessControl  {
         emit BankRegistred(name, bank);
     }
 
-    function GetBankAddress(string name) view public returns (address memory) {
+    function GetBankAddress(string memory name) view public returns (address) {
         return banks[name];
     }
 }
