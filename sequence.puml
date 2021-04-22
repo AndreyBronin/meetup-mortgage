@@ -1,0 +1,28 @@
+@startuml
+title Send Mortgage Document
+
+participant "Off-chain Storage" as Storage
+actor GreenManager
+participant GreenBank
+participant BankRegistry
+participant RedBank
+
+group Send document
+GreenManager -> Storage: saveFile(encriptedPayload): docId
+GreenManager -> BankRegistry: GetBankAddress('RedBank')
+
+GreenManager -> GreenBank: SendMortgageDocumentToBank(redBankAddress, docId)
+GreenBank -> RedBank: StoreDocument(docId)
+
+actor RedManager
+end
+
+group Process document
+RedManager <-- RedBank: event MortgageDocumentReceived())
+RedManager -> RedBank: ApproveMortgageDocument()
+
+GreenManager <-- RedBank: event MortgageDocumentApproved())
+end
+
+
+@enduml

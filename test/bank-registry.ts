@@ -29,19 +29,16 @@ describe("Bank suite", function() {
     banks = await hre.run('deploy:banks');
   });
 
-  it("Should register Bank", async () => {
-
-    const tx = banks.registry.connect(admin).RegisterBank('GreenBank', greenAdmin.address);
-
+  it("Should register Banks", async () => {
+    const tx = banks.registry.connect(admin).RegisterBank('GreenBank', banks.green.address);
     await expect(tx)
       .to.emit(banks.registry, 'BankRegistred')
-      .withArgs('GreenBank', greenAdmin.address);
+      .withArgs('GreenBank', banks.green.address);
 
-    const tx2 = banks.registry.connect(admin).RegisterBank('RedBank', redAdmin.address);
-
+    const tx2 = banks.registry.connect(admin).RegisterBank('RedBank', banks.red.address);
     await expect(tx2)
       .to.emit(banks.registry, 'BankRegistred')
-      .withArgs('RedBank', redAdmin.address);
+      .withArgs('RedBank', banks.red.address);
   });
 
   it("Should revert document witch already exist", async () => {

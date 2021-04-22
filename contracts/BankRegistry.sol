@@ -2,27 +2,21 @@
 pragma solidity ^0.7.0;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
-//import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "hardhat/console.sol";
 
-//struct Org {
-//    address Address;
-//    string  Name;
-//}
-
 contract BankRegistry is AccessControl  {
-    event BankRegistred(string name, address bankAdmin);
+    event BankRegistred(string name, address bank);
 
-    mapping(address => string) banks;
+    mapping(string => address) banks;
 
 
-    function RegisterBank(string memory name, address bankAdmin) external {
-        banks[bankAdmin] = name;
-        emit BankRegistred(name, bankAdmin);
+    function RegisterBank(string memory name, address bank) external {
+        banks[name] = bank;
+        emit BankRegistred(name, bank);
     }
 
-//    function GetOrgAddress(string name) view public address {
-//        return
-//    }
+    function GetBankAddress(string name) view public returns (address memory) {
+        return banks[name];
+    }
 }

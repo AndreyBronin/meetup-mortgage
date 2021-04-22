@@ -1,14 +1,23 @@
 # Демо проект
 
-О чем проект
+Простая реализация документооборота на блокчейне.
+Текущая реализация пока не использует механизм шифрования документов.
 
-# Как запустить
+![Roadmap](./sequence.png)
+
+## Как запустить
 
 ```
 npm install
 npm build
-bpm test-logs
+npm test-logs
 ```
+
+# TBD
+ - file encription
+ - React frontend
+ - ipfs storage
+ - Subgraph API
 
 ## Инструменты и утилиты
 

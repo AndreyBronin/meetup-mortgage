@@ -5,11 +5,6 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 
 import "hardhat/console.sol";
 
-//struct Org {
-//    address Address;
-//    string  Name;
-//}
-
 contract Bank is AccessControl  {
     event MortgageDocumentReceived(address fromBank, uint256 docId);
     event MortgageDocumentApproved(uint256 docId);
