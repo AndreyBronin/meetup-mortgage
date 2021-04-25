@@ -4,13 +4,12 @@
   "description": "",
   "scripts": {
     "start": "react-scripts start",
-    "build": "SKIP_LOAD=true npm run compile",
+    "build": "npm run compile",
     "react:build": "react-scripts build",
-    "clean": "hardhat clean",
-    "compile": "SKIP_LOAD=true hardhat compile",
-    "test": "hardhat test",
-    "test-logs": "hardhat test --logs",
-    "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"
+    "clean": "TS_NODE_PROJECT=./tsconfig.hardhat.json hardhat clean",
+    "compile": "TS_NODE_PROJECT=./tsconfig.hardhat.json SKIP_LOAD=true hardhat compile",
+    "test": "TS_NODE_PROJECT=./tsconfig.hardhat.json hardhat test",
+    "test-logs": "TS_NODE_PROJECT=./tsconfig.hardhat.json hardhat test --logs"
   },
   "author": "Andrey Bronin",
   "license": "ISC",
