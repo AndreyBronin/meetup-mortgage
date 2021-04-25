@@ -1,12 +1,11 @@
 import { task } from 'hardhat/config';
 import { Bank, BankFactory, BankRegistryFactory } from '../types';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { ethers } from 'hardhat';
 
 task("deploy:banks", "Deploy bank contracts")
   .setAction(async (_, hre) => {
     let admin: SignerWithAddress;
-    let greenAdmin, yellowAdmin, redAdmin: SignerWithAddress;
+    let greenAdmin, redAdmin: SignerWithAddress;
     let otherUsers: SignerWithAddress[];
 
     [admin, greenAdmin, redAdmin, ...otherUsers] = await hre.ethers.getSigners();

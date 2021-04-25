@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "hardhat node",
-    "build": "SKIP_LOAD=true npm run compile",
+    "start": "react-scripts start",
+    "build": "SKIP_LOAD=true npm run compile && npm run compile react:build",
+    "react:build": "react-scripts build",
     "clean": "hardhat clean",
-    "compile": "hardhat compile",
+    "compile": "SKIP_LOAD=true hardhat compile",
     "test": "hardhat test",
     "test-logs": "hardhat test --logs",
     "coverage": "npm run build && npx hardhat coverage --temp artifacts --network coverage"
@@ -35,6 +36,22 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "hardhat-typechain": "^0.3.5"
+    "hardhat-typechain": "^0.3.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
