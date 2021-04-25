@@ -25,6 +25,10 @@ npm run test-logs
 
 ## Инструменты и утилиты
 
+[Ethereum Developer Tools List](https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-developer-tools-list)
+
+#### Используемые в этом проекте
+
  - [HardHat](https://hardhat.org/)
  - [Ganache](https://www.trufflesuite.com/ganache)
  - [The Graph](https://thegraph.com)
