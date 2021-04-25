@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "react-scripts start",
-    "build": "SKIP_LOAD=true npm run compile && npm run compile react:build",
+    "build": "SKIP_LOAD=true npm run compile",
     "react:build": "react-scripts build",
     "clean": "hardhat clean",
     "compile": "SKIP_LOAD=true hardhat compile",
