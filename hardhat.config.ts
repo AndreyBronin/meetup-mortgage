@@ -5,7 +5,7 @@ dotenv.config(); // load env vars from .env
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
-
+import '@tenderly/hardhat-tenderly';
 
 import "hardhat-typechain";
 import "hardhat-tracer";
@@ -16,6 +16,8 @@ const HARDFORK = 'istanbul';
 const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || '';
 const COINMARKETCAP_KEY = process.env.COINMARKETCAP_KEY || '';
+const TENDERLY_FORK_ID = 'b8b4a90a-6040-4633-b172-1451a88bdbcf';
+
 
 if (!SKIP_LOAD) {
   const tasksPath = path.join(__dirname, 'tasks');
@@ -37,6 +39,10 @@ const hardhatConfig: HardhatUserConfig = {
     coinmarketcap: COINMARKETCAP_KEY,
     enabled: true
   },
+  tenderly: {
+    project: process.env.TENDERLY_PROJECT || 'meetup-mortgage',
+    username: process.env.TENDERLY_USERNAME || 'andreybronin',
+  },
   networks: {
     hardhat: {
       hardfork: HARDFORK,
@@ -48,6 +54,10 @@ const hardhatConfig: HardhatUserConfig = {
         initialIndex: 0,
         count: 20,
       },
+    },
+    tenderly: {
+      url: `https://rpc.tenderly.co/fork/${TENDERLY_FORK_ID}`,
+      chainId: 3030
     },
     ganache: {
       url: 'http://localhost:7545',
