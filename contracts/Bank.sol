@@ -16,6 +16,7 @@ contract Bank is AccessControl  {
 
     enum DocStatus{ NONE, STORED, RECEIVED, APPROVED, REJECTED }
     bytes32 public constant MANAGER_ROLE = keccak256("MANAGER_ROLE");
+    bytes32 public constant SECURITY_ROLE = keccak256("SECURITY_ROLE");
 
     mapping(uint256 => DocStatus) private mortgageDocuments;
 
@@ -29,6 +30,12 @@ contract Bank is AccessControl  {
         require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "AccessControl: admin");
 
         grantRole(MANAGER_ROLE, account);
+    }
+
+    function GrantSecurity(address account) external {
+        require(hasRole(DEFAULT_ADMIN_ROLE, _msgSender()), "AccessControl: admin");
+
+        grantRole(SECURITY_ROLE, account);
     }
 
 //    function SetPublicKey(string memory pk_) external {
