@@ -1,5 +1,5 @@
 import { task } from 'hardhat/config';
-import { Bank, BankFactory, BankRegistryFactory } from '../types';
+import { Bank, Bank__factory, BankRegistry__factory } from '../types';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 
 task("deploy:banks", "Deploy bank contracts")
@@ -10,14 +10,14 @@ task("deploy:banks", "Deploy bank contracts")
 
     [admin, greenAdmin, redAdmin, ...otherUsers] = await hre.ethers.getSigners();
 
-    const bankRegistryFactory = (await hre.ethers.getContractFactory("BankRegistry")) as BankRegistryFactory;
+    const bankRegistryFactory = (await hre.ethers.getContractFactory("BankRegistry")) as BankRegistry__factory;
     const bankRegistry = await bankRegistryFactory.connect(admin).deploy();
     await bankRegistry.deployed();
 
     const deployBank = async (name: string, bankAdmin: SignerWithAddress): Promise<Bank> => {
       console.log(`==== Deploy Bank: ${name} with admin: ${bankAdmin.address}`)
 
-      const factory = (await hre.ethers.getContractFactory("Bank")) as BankFactory;
+      const factory = (await hre.ethers.getContractFactory("Bank")) as Bank__factory;
       const bank = await factory.connect(bankAdmin).deploy(name, bankRegistry.address);
       await bank.deployed();
       return bank;

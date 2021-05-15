@@ -1,7 +1,7 @@
 import hre, { ethers } from "hardhat";
 import { solidity } from "ethereum-waffle";
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { Bank, BankRegistry, BankRegistryFactory } from '../types';
+import { Bank, BankRegistry, BankRegistry__factory } from '../types';
 import chai from "chai";
 
 chai.use(solidity);

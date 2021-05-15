@@ -18,28 +18,30 @@
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^3.4.1-solc-0.7-2",
-    "@tenderly/hardhat-tenderly": "beta-v1.1.0-beta.5",
-    "@typechain/ethers-v5": "^2.0.0",
+    "@tenderly/hardhat-tenderly": "1.1.0-beta.5",
+    "@typechain/ethers-v5": "^7.0.0",
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
     "chai": "^4.3.4",
-    "ethers": "^5.1.3",
-    "hardhat": "^2.2.0",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.1.4",
+    "hardhat": "^2.2.1",
     "hardhat-gas-reporter": "^1.0.4",
     "hardhat-tracer": "^1.0.0-alpha.5",
     "mocha": "^8.3.0",
-    "ts-generator": "^0.1.1",
     "ts-node": "^9.1.1",
-    "typechain": "^4.0.3",
+    "typechain": "^5.0.0",
     "typescript": "^4.1.5"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "hardhat-typechain": "^0.3.5",
+    "@typechain/hardhat": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "web3": "^1.3.5",
+    "web3modal": "^1.9.3"
   },
   "browserslist": {
     "production": [

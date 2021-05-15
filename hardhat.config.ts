@@ -7,7 +7,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
 import '@tenderly/hardhat-tenderly';
 
-import "hardhat-typechain";
+import "@typechain/hardhat";
 import "hardhat-tracer";
 import "hardhat-gas-reporter";
 
@@ -42,6 +42,7 @@ const hardhatConfig: HardhatUserConfig = {
   tenderly: {
     project: process.env.TENDERLY_PROJECT || 'meetup-mortgage',
     username: process.env.TENDERLY_USERNAME || 'andreybronin',
+    forkNetwork: '',
   },
   networks: {
     hardhat: {
