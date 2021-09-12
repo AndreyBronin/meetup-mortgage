@@ -29,7 +29,7 @@ if (!SKIP_LOAD) {
 }
 
 const hardhatConfig: HardhatUserConfig = {
-  solidity: "0.7.3",
+  solidity: "0.8.4",
   typechain: {
     outDir: 'types',
     target: 'ethers-v5',
